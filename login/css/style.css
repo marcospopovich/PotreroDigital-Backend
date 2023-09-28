@@ -88,3 +88,21 @@ button:hover{
 #chk:checked ~ .signup label{
 	transform: scale(.6);
 }
+h6 {
+	color: rgb(152, 151, 151);
+}
+#contrasenia {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+}
+#registro {
+	color: rgb(138, 144, 149);
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+}
