@@ -1,61 +1,52 @@
 <?php
 $alert = "";
-
+$mensaje = "";
 if(!empty($_POST)){
-    if($_POST["usuario"]== "pepe" && $_POST["clave"] == 1234){
-        echo "<h3>ingreso</h3>";
-    }else{
-        $alert = '<h3>Login Incorrecto</h3>';
-    }
+
+    if (!empty($_POST["registro"])){
+		$mensaje = "registro";
+	}
+	if(!empty($_POST["login"])){
+		$mensaje = "login";
+	}
+
+
 }
 
 ?>
-
-
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
- <!-- Required meta tags -->
- <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="css/style.css">
-	<title>Login | Potrero Digital</title>
-	
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
 
-			<form action="" method="post" autocomplete="off">
-	<div class="">
-	<div class="">
-				
-			
-			<div><?php echo isset($alert) ? $alert: ''; ?></div>
-			<h3>Ingrese Usuario</h3>
-	<div class="form-group">
-			<input type="text" name="usuario" placeholder="Usuario" class="form-control" autofocus>
+			<div class="signup">
+				<form action="" method="post" autocomplete="off">
+					<label for="chk" aria-hidden="true">Registro</label>
+					<input type="hidden" name="registro" value="registro" />
+					<input type="text" name="txt" placeholder="Usuario" required="">
+					<input type="email" name="email" placeholder="Email" required="">
+					<input type="password" name="pswd" placeholder="Password" required="">
+					<button>Ingresar</button>
+				</form>
+			</div>
+
+			<div class="login">
+				<form action="" method="post" autocomplete="off">
+				<input type="hidden" name="login" value="login" />
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email" name="emailLogin" placeholder="Email" required="">
+					<input type="password" name="pswdLogin" placeholder="Password" required="">
+					<button>Login</button>
+					<h6>Olvidaste la contraseña?</h6>	
+				</form>
+			</div>
 	</div>
-			<h3>Ingrese contraseña</h3>
-	<div class="form-group">
-			<input type="password" name="clave" placeholder="Contraseña" class="form-control">
-			
-	
-	</div>	
-	<div>
-	<input type="submit" value="Iniciar sesión" class="btn">
-	</div>
-
-		</form>
-		</div>
-		</div>
-
-</div>
-
-
-
-
-<footer>     
-</footer>	
-
 </body>
 </html>
+
