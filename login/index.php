@@ -1,16 +1,22 @@
 <?php
+session_start();
 $alert = "";
 $flag = "";
-$email = 'admin@admin';
-$passwd = 1234;
+
 if (!empty($_POST)) {
 
 	if (!empty($_POST["registro"])) {
 		$flag = "registro";
+		$_SESSION['email'] = $_POST['email'];
+		$_SESSION['pswd'] = $_POST['pswd'];
+		$_SESSION['txt'] = $_POST['txt'];
+
+
 	}
 	if (!empty($_POST["login"])) {
-		if ($_POST['emailLogin'] == $email & $_POST['pswdLogin'] == $passwd) {
+		if ($_POST['emailLogin'] == $_SESSION['email'] & $_POST['pswdLogin'] == $_SESSION['pswd']) {
 			$flag = "login";
+			
 		} else {
 			$flag = "error";
 		}
@@ -46,19 +52,24 @@ if (!empty($_POST)) {
 								<input type="text" name="txt" placeholder="Usuario" required="">
 								<input type="email" name="email" placeholder="Email" required="">
 								<input type="password" name="pswd" placeholder="Password" required="">
-								<button>Ingresar</button>
+								<button>Registrar</button>
 							</form>';
 					break;
 				case 'registro':
 					echo '<div id="registro"> <h2>Registro Exitoso</h2></div>
+					<button class="volver>Volver</button>
 					
 					';
 					break;
 				case 'login':
-					echo '<div id="registro"> <h2>Bienvenido al sistema</h2></div>';
+					echo '<div id="registro"> <h2>Bienvenido al sistema</h2></div>
+					<a href="index.php">Volver</a>
+					';
 					break;
 				case 'error':
-					echo '<div id="registro"> <h2>Datos Invalidos</h2></div>';
+					echo '<div id="registro"> <h2>Datos Invalidos</h2></div>
+					<a  href="index.php">Volver</a>
+					';
 					break;
 			}
 
@@ -88,7 +99,7 @@ if (!empty($_POST)) {
 			?>
 		</div>
 	</div>
-
+	
 
 </body>
 
