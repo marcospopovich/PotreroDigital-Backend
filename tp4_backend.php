@@ -55,5 +55,5 @@ $ciudades2 = [
 
 foreach ($ciudades2 as $key => $value) {
     print("</br>");
-    print("La ciudad con el indice $key tiene el nombre $value");
+    print("La ciudad con el valor $value tiene el indice $key");
 }
