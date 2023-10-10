@@ -52,3 +52,8 @@ $ciudades2 = [
     "LA" => "Los Angeles",
     "CCG" => "Chicago"
 ];
+
+foreach ($ciudades2 as $key => $value) {
+    print("</br>");
+    print("La ciudad con el indice $key tiene el nombre $value");
+}
